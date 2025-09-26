@@ -184,7 +184,7 @@ For example
 
 There is an associated binary relation here. 
 
-We say that <span style="background-color:orange"> two integers $a$ and $b$ are <em>congruent modulo $n$</em></span>, written as 
+We say that two integers $a$ and $b$ are <em>congruent modulo $n$</em></span>, written as 
 $$ a \equiv b \pmod{n},$$
 if 
 
