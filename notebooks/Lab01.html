@@ -7487,7 +7487,7 @@ a.anchor-link {
 <li>Then we can discuss any questions or queries from the lecture.</li>
 <li>Then we can work on the programming and mathematical tasks below to consolidate and further our understanding of the topics from the lecture.</li>
 </ul>
-<h2 id="Tasks">Tasks<a class="anchor-link" href="#Tasks">¶</a></h2><p>We will work with the language Python in a Jupyter notebook since this allows us to easily assemble block of code and associated output, redit our commands and annotate them nicely with typset text paragraphs.</p>
+<h2 id="Tasks">Tasks<a class="anchor-link" href="#Tasks">¶</a></h2><p>We will work with the language Python in a Jupyter notebook since this allows us to easily assemble blocks of code and associated output, re-edit our commands and annotate them nicely with typeset text paragraphs.</p>
 <ul>
 <li>Search for and launch the <code>Jupyter</code> notebook server from the PC's Start menu and follow the steps below.<ul>
 <li>This will start up a local service on your PC and eventually, after maybe some moments, it will open the Jupyter Notebook web app in the web browser.</li>
@@ -7598,6 +7598,9 @@ $$a = qn + r.$$</p>
         return mygcd(b,r)
 </code></pre>
 <ul>
+<li>In Python, we can define a function, like <code>mycd</code>, by starting with the line <code>def mygcd(a,b):</code>. This declares <code>mygcd</code> as the name of the function and specifies that it is taking two inputs <code>a</code> and <code>b</code>.</li>
+<li>The body of code that defines the function then follows this line and it is indented one tab-stop from the left. Python uses indentation to define its blocks of code, such as code blocks defining functions, the code blocks that form the body of a <code>for</code> or <code>while</code> loop or conditional <code>if</code> statement.</li>
+<li>The Python statement <code>return ...</code> is used to specify what value(s) the function returns. When the execution of the function reaches such a <code>return ...</code> line, the following value is returned back to the process that called the function.</li>
 <li>Note the check to return <code>gcd(x,0)=x</code> when we have reached the <em>last</em> integer division. Note the use of recursion where we basically define the <code>mygcd</code> function by returing another call to <code>mygcd</code>.</li>
 </ul>
 </div>
@@ -7612,7 +7615,7 @@ $$a = qn + r.$$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Tasks</strong></p>
 <ol>
-<li><p>Complete the model code above, by replacing the <code>?</code>s, to obtain a working function <code>mygcd</code>. Test that it is working correctly on small arguments. Compare its output with <code>sp.gcd</code> for some large arguments.</p>
+<li><p>Complete the model code above, by replacing the <code>?</code>s, to obtain a working function <code>mygcd</code>. Test that it is working correctly on small arguments. Compare its output with <code>sp.gcd</code> for some large arguments. <em>If you want the floor function to help with this, then the Sympy library has the floor function. Use it with the command</em> <code>sp.floor(...)</code><em>, replacing ... with the appropriate argument.</em></p>
 </li>
 <li><p>What other checks/cases should you use like the <code>if b==0</code> one, in order for your function to work with all valid inputs? How should your function treat any negative arguments?</p>
 </li>
