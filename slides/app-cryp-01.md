@@ -247,12 +247,20 @@ $$b \equiv c \pmod{n}.$$
 Using linear combinations and the Euclidean algorithm we can show that 
 
 * for $a$ in $\mathbb{Z}_n$, a multiplicative inverse of $a$ modulo $n$ will exists if and only if $\gcd(a,n)=1$. 
+* **Terminology**: If $\gcd(a,b)=1$ then $a,b$ are said to be <em>relatively prime</em>, or <em>coprime</em>.
 
-Terminology
+**Extended Euclidean algorithm**
 
-* If $\gcd(x,y)=1$ then $x,y$ are said to be <em>relatively prime</em>, or <em>coprime</em>.
+* If $\gcd(a,b) = d$ then the *Extended Euclidean Algorithm* is an algorithm that produces integer coefficients $x,y$ such that 
+$$ xa + yb = d.$$
+* It works by using the integer division with remainder equations from the Euclidean algorithm applied to $\gcd(a,b)$ and a method of *back substitution* to generate the $x,y$. 
+* We will demonstrate it by finding $x,y$ so that $x \cdot 710 + y \cdot 310 = 10$.
 
-See Stallings chapter 2 for details. 
+**Connection with multiplicative inverses**
+
+* When $\gcd(a,n) = 1$ and we find coefficients $x,y$ such that 
+$$xa + yn = 1,$$
+then $x \equiv a^{-1} \pmod{n}$.
 
 <!-- ## Prime numbers
 

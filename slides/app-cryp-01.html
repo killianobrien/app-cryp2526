@@ -468,14 +468,33 @@ class="math inline">\(\mathbb{Z}_n\)</span>, a multiplicative inverse of
 <span class="math inline">\(a\)</span> modulo <span
 class="math inline">\(n\)</span> will exists if and only if <span
 class="math inline">\(\gcd(a,n)=1\)</span>.</li>
-</ul>
-<p>Terminology</p>
-<ul>
-<li>If <span class="math inline">\(\gcd(x,y)=1\)</span> then <span
-class="math inline">\(x,y\)</span> are said to be <em>relatively
+<li><strong>Terminology</strong>: If <span
+class="math inline">\(\gcd(a,b)=1\)</span> then <span
+class="math inline">\(a,b\)</span> are said to be <em>relatively
 prime</em>, or <em>coprime</em>.</li>
 </ul>
-<p>See Stallings chapter 2 for details.</p>
+<p><strong>Extended Euclidean algorithm</strong></p>
+<ul>
+<li>If <span class="math inline">\(\gcd(a,b) = d\)</span> then the
+<em>Extended Euclidean Algorithm</em> is an algorithm that produces
+integer coefficients <span class="math inline">\(x,y\)</span> such that
+<span class="math display">\[ xa + yb = d.\]</span></li>
+<li>It works by using the integer division with remainder equations from
+the Euclidean algorithm applied to <span
+class="math inline">\(\gcd(a,b)\)</span> and a method of <em>back
+substitution</em> to generate the <span
+class="math inline">\(x,y\)</span>.</li>
+<li>We will demonstrate it by finding <span
+class="math inline">\(x,y\)</span> so that <span class="math inline">\(x
+\cdot 710 + y \cdot 310 = 10\)</span>.</li>
+</ul>
+<p><strong>Connection with multiplicative inverses</strong></p>
+<ul>
+<li>When <span class="math inline">\(\gcd(a,n) = 1\)</span> and we find
+coefficients <span class="math inline">\(x,y\)</span> such that <span
+class="math display">\[xa + yn = 1,\]</span> then <span
+class="math inline">\(x \equiv a^{-1} \pmod{n}\)</span>.</li>
+</ul>
 <!-- ## Prime numbers
 
 ## Fermat's Little Theorem
