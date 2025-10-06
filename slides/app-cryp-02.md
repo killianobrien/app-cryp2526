@@ -3,7 +3,7 @@ title: "Introduction to Number Theory"
 author:
 - Killian O'Brien
 - 6G6Z0024 Applied Cryptography 2024/25
-date: Lecture Week 02 -- Wed 09 October 2024
+date: Lecture Week 02 -- Mon 06 October 2025
 transition: fade
 theme: killian
 width: 1920
@@ -29,7 +29,7 @@ title-slide-attributes:
 
 * Timetable
 
-* Let's look at the [Moodle](https://moodle.mmu.ac.uk/course/view.php?id=183852){target="_blank"} page for the unit.
+* Let's look at the [Moodle](https://moodle.mmu.ac.uk/course/view.php?id=194955){target="_blank"} page for the unit.
 
 ## Introduction to Number Theory
 
@@ -56,7 +56,7 @@ Modern cryptography relies heavily on techniques and facts from *number theory*,
 * **The Chinese Remainder Theorem**
 * **Discrete logarithms**
 
-All these covered in <a href="https://mmu.on.worldcat.org/oclc/1064983791" target="_blank">Stallings, Chapter 2: Introduction to Number Theory</a>.
+All these covered in <a href="https://mmu.on.worldcat.org/oclc/1334132058" target="_blank">Stallings, Chapter 2: Introduction to Number Theory</a>.
 
 ## The divisibility relation
 
@@ -98,7 +98,7 @@ Do you remember this kind of thing from primary school?
 
 The *integer division algorithm* is simply a formalization of this. It is:
 
-* Given any postitive integer $n$ and any non-negative integer $a$, we can divide $a$ by $n$ to get an integer quotient $q$ and remainder $r$ that satisfy
+* Given any positive integer $n$ and any non-negative integer $a$, we can divide $a$ by $n$ to get an integer quotient $q$ and remainder $r$ that satisfy
 
 * $a = qn + r$, \quad and $0 \leq r \lt n$, and $q = \left \lfloor a/n \right \rfloor$
 * $\left \lfloor x \right \rfloor$ is defined as the largest integer less than $x$, the so-called <em>floor</em> function.
@@ -107,7 +107,7 @@ The *integer division algorithm* is simply a formalization of this. It is:
 
 We write $\gcd(a,b)$ for the <em>greatest common divisor of $a$ and $b$</em>. So $\gcd$ is defined by 
 
-* $\gcd(a,b) = d$, where $d$ is the alrgest integer that divides both $a$ and $b$.
+* $\gcd(a,b) = d$, where $d$ is the largest integer that divides both $a$ and $b$.
 * For neatness, we also define $\gcd(0,0) = 0$.
 
 For example
@@ -124,13 +124,13 @@ For small arguments $a,b$, we can calculate $\gcd(a,b)$ <em>in our heads</em>, s
 
 In fact there is a classic algorithm that can quickly determine $\gcd$, and establishes the following, non-obvious fact,
 
-* $\gcd(a,b)$ is the smallest postitive integer $d$ that can be written in the form 
+* $\gcd(a,b)$ is the smallest positive integer $d$ that can be written in the form 
 
 $$ d = x \cdot a + y \cdot b,$$
 
 for integer coefficients $x,y$.
 
-The Euclidean algortihm was known to ancient mathematicians and has severl important uses and generalisations in mathematics and cryptography.
+The Euclidean algortihm was known to ancient mathematicians and has several important uses and generalisations in mathematics and cryptography.
 
 
 ## The Euclidean Algorithm
@@ -174,7 +174,7 @@ See Stallings for the full detail, a flowchart specification of the algorithm, a
 
 For an integer $a$ and a positive integer $n$ we say that <em>$a$ modulo $n$</em> is the remainder $r$ in the integer division of $a$ by $n$. 
 
-* $a = qn + r$, \quad $0 \leq r \lt n$
+* $a = qn + r$,  $\quad 0 \leq r \lt n$
 * We write $(a \mod n) = r$.
 * $n$ is called the <em>modulus</em> in this expression.
 
@@ -182,10 +182,10 @@ For example
 
 * $(11 \mod 7) = 4$ and $(-11 \mod 4) = 1$.
 
-There is an associated binary relation here. We say that two integers $a$ and $b$ are <em>congruent modulo $n$</em>, written as 
+There is an associated binary relation here. 
 
+We say that two integers $a$ and $b$ are <em>congruent modulo $n$</em></span>, written as 
 $$ a \equiv b \pmod{n},$$
-
 if 
 
 * $(a \mod n) = (b \mod n)$
@@ -234,8 +234,8 @@ then we say $y$ is the <em>multiplicative inverse of $x$ modulo $n$</em>, and vi
 This is connected to the issue of cancellation in $\mathbb{Z}_n$.
 
 * If $(a+b) \equiv (a+c) \pmod{n}$ then $b \equiv c \pmod{n}$.
-* If $(a\cdot b) \equiv (a \cdot c) \pmod{n}$ then it's not neccessarily true that $b \equiv c \pmod{n}$.
-* However if $a^{-1} \pmod{n}$ exists then we can cancel from products as
+* If $(a\cdot b) \equiv (a \cdot c) \pmod{n}$ then it's not necessarily true that $b \equiv c \pmod{n}$.
+* However, if $a^{-1} \pmod{n}$ exists then we can cancel from products as
 $$a^{-1} (a\cdot b) \equiv a^{-1} (a \cdot c) \pmod{n}$$
 and so 
 $$(a^{-1}a)\cdot b \equiv (a^{-1} a) \cdot c \pmod{n}$$
@@ -247,12 +247,20 @@ $$b \equiv c \pmod{n}.$$
 Using linear combinations and the Euclidean algorithm we can show that 
 
 * for $a$ in $\mathbb{Z}_n$, a multiplicative inverse of $a$ modulo $n$ will exists if and only if $\gcd(a,n)=1$. 
+* **Terminology**: If $\gcd(a,b)=1$ then $a,b$ are said to be <em>relatively prime</em>, or <em>coprime</em>.
 
-Terminology
+**Extended Euclidean algorithm**
 
-* If $\gcd(x,y)=1$ then $x,y$ are said to be <em>relatively prime</em>, or <em>coprime</em>.
+* If $\gcd(a,b) = d$ then the *Extended Euclidean Algorithm* is an algorithm that produces integer coefficients $x,y$ such that 
+$$ xa + yb = d.$$
+* It works by using the integer division with remainder equations from the Euclidean algorithm applied to $\gcd(a,b)$ and a method of *back substitution* to generate the $x,y$. 
+* We will demonstrate it by finding $x,y$ so that $x \cdot 710 + y \cdot 310 = 10$.
 
-See Stallings chapter 2 for details. 
+**Connection with multiplicative inverses**
+
+* When $\gcd(a,n) = 1$ and we find coefficients $x,y$ such that 
+$$xa + yn = 1,$$
+then $x \equiv a^{-1} \pmod{n}$.
 
 ## Prime numbers
 
@@ -264,8 +272,8 @@ Of central importance in cryptography, and of great interest to mathematicians, 
 $$p = 2,3,5,7,11,13,17,19,23,\dots$$
 * In fact, there are **infinitely many** primes. Known to Euclid, circa 2,300 years ago. See this [Numberphile video](https://www.youtube.com/watch?v=ctC33JAV4FI){target="_blank"}  for an accessible discussion of the proof of this, and its history. 
 * The largest prime known to humans is currently
-$$2^{82,589,933} -1,$$
-an integer with approximately 24 million digits. Discovered in 2018, thanks to the [GIMPS](https://www.mersenne.org/){target="_blank"} project.
+$$2^{136,279,841}-1,$$
+an integer with approximately 41 million digits. Discovered in Oct 2024, thanks to the [GIMPS](https://www.mersenne.org/){target="_blank"} project.
 
 ## Primes make integers
 
@@ -288,7 +296,7 @@ $$n = \prod_{i=1}^r p_i^{a_i}.$$
 
 ## Fermat's Little Theorem
 
-We need to understand the behaviour of *multiplication* and *exponentiation* on $\mathbb{Z}_n$. **Euler's Theorem** is a result that tells us a lot about how it behaves. A simpler first case to look at it called **Fermat's Little Theorem**. 
+We need to better understand the behaviour of *multiplication* and *exponentiation* on $\mathbb{Z}_n$ in order to understand how several *public key crytography* systems work. **Euler's Theorem** is a result that tells us a lot about how it behaves. A simpler first case to look at it called **Fermat's Little Theorem**. 
 
 <span class="theorem" name="Fermat's Little Theorem">
 If $p$ is a prime and $a$ is a postive integer not divisible by $p$, (i.e. $a \not\equiv 0 \pmod{p}$) then 
@@ -308,15 +316,15 @@ $$7^2 \equiv 49 \equiv 11 \pmod{19} \quad
 $$
 
 
-$$7^8 \equiv 7^2 \equiv 49 \equiv 11 \pmod{19} \quad 
-7^{16} \equiv 11^2 \equiv 121 \equiv 7  \pmod{19}
+$$7^8 \equiv \left ( 7^4 \right )^2 \equiv 7^2 \equiv 49 \equiv 11 \pmod{19} \quad 
+7^{16} \equiv \left ( 7^8 \right )^2 \equiv 11^2 \equiv 121 \equiv 7  \pmod{19}
 $$
 
 So now 
 
 $$ a^{p-1} \equiv a^{18} \equiv a^{16+2} \equiv a^{16}\cdot a^2 \equiv 7^{16}\cdot 7^2 \equiv 7 \cdot 11 \equiv 77 \equiv 1 \pmod{19}.$$
 
-* These calculations show an example of dealing with large exponents, (i.e. 16), by the method of **repeated squares**. More later. 
+* These calculations show an example of dealing with large exponents, (e.g. 18), by the method of **repeated squares**. More later. 
 
 ## Euler's totient function
 
@@ -390,7 +398,7 @@ $$ M = \prod_{i=1}^k p_i^{a_i} = \left ( p_1^{a_1} \right ) \cdot \left ( p_2^{a
 $$\mathbb{Z}_{m_1} \times \mathbb{Z}_{m_2} \times \dots \times \mathbb{Z}_{m_k}.$$
 * An element of $\mathbb{Z}_{m_1} \times \mathbb{Z}_{m_2} \times \dots \times \mathbb{Z}_{m_k}$ is a $k$-tuple
 $$(a_1 , a_2, \dots , a_k),$$
-where each $a_i$ is a residues/remainder modulo $m_i$.
+where each $a_i$ is a residue/remainder modulo $m_i$.
 
 ## The Chinese Remainder Theorem
 
@@ -406,7 +414,7 @@ i.e. reduct $x$ modulo $m_i$ for the $i^{th}$-component of the $k$-tuple.
 $$a = \sum_{i=1}^k a_i \cdot M_i \cdot M_i^{-1} \pmod{M}.$$
 * These two maps described above are *inverses* of one another. 
 * Arithmetic operations on elements of $\mathbb{Z}_M$ can be achived by corresepoding operations on elements of $\mathbb{Z}_{m_1} \times \mathbb{Z}_{m_2} \times \dots \times \mathbb{Z}_{m_k}$.
-* We will work with examples of this in the today's lab. 
+* We will work with examples of this in the this week's lab. 
 
 ## Suggested reading
 

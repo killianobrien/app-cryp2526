@@ -41,7 +41,7 @@
   <h1 class="title">Introduction to Number Theory</h1>
   <p class="author">Killian O’Brien</p>
   <p class="author">6G6Z0024 Applied Cryptography 2024/25</p>
-  <p class="date">Lecture Week 02 – Wed 09 October 2024</p>
+  <p class="date">Lecture Week 02 – Mon 06 October 2025</p>
 </section>
 
 <section id="introduction-to-the-unit" class="slide level2">
@@ -56,7 +56,7 @@ See Moodle for contact details.</p></li>
 <li><p>Assessment is 100% coursework. A portfolio of exercises.</p></li>
 <li><p>Timetable</p></li>
 <li><p>Let’s look at the <a
-href="https://moodle.mmu.ac.uk/course/view.php?id=183852"
+href="https://moodle.mmu.ac.uk/course/view.php?id=194955"
 target="_blank">Moodle</a> page for the unit.</p></li>
 </ul>
 </section>
@@ -104,7 +104,7 @@ arithmetic</strong>.</li>
 <li><strong>Discrete logarithms</strong></li>
 </ul>
 <p>All these covered in
-<a href="https://mmu.on.worldcat.org/oclc/1064983791" target="_blank">Stallings,
+<a href="https://mmu.on.worldcat.org/oclc/1334132058" target="_blank">Stallings,
 Chapter 2: Introduction to Number Theory</a>.</p>
 </section>
 <section id="the-divisibility-relation" class="slide level2">
@@ -190,10 +190,9 @@ class="math inline">\(2\)</span>.</li>
 <p>The <em>integer division algorithm</em> is simply a formalization of
 this. It is:</p>
 <ul>
-<li><p>Given any postitive integer <span
-class="math inline">\(n\)</span> and any non-negative integer <span
-class="math inline">\(a\)</span>, we can divide <span
-class="math inline">\(a\)</span> by <span
+<li><p>Given any positive integer <span class="math inline">\(n\)</span>
+and any non-negative integer <span class="math inline">\(a\)</span>, we
+can divide <span class="math inline">\(a\)</span> by <span
 class="math inline">\(n\)</span> to get an integer quotient <span
 class="math inline">\(q\)</span> and remainder <span
 class="math inline">\(r\)</span> that satisfy</p></li>
@@ -215,7 +214,7 @@ and <span class="math inline">\(b\)</span></em>. So <span
 class="math inline">\(\gcd\)</span> is defined by</p>
 <ul>
 <li><span class="math inline">\(\gcd(a,b) = d\)</span>, where <span
-class="math inline">\(d\)</span> is the alrgest integer that divides
+class="math inline">\(d\)</span> is the largest integer that divides
 both <span class="math inline">\(a\)</span> and <span
 class="math inline">\(b\)</span>.</li>
 <li>For neatness, we also define <span class="math inline">\(\gcd(0,0) =
@@ -247,14 +246,14 @@ class="math inline">\(\gcd\)</span>, and establishes the following,
 non-obvious fact,</p>
 <ul>
 <li><span class="math inline">\(\gcd(a,b)\)</span> is the smallest
-postitive integer <span class="math inline">\(d\)</span> that can be
+positive integer <span class="math inline">\(d\)</span> that can be
 written in the form</li>
 </ul>
 <p><span class="math display">\[ d = x \cdot a + y \cdot b,\]</span></p>
 <p>for integer coefficients <span
 class="math inline">\(x,y\)</span>.</p>
 <p>The Euclidean algortihm was known to ancient mathematicians and has
-severl important uses and generalisations in mathematics and
+several important uses and generalisations in mathematics and
 cryptography.</p>
 </section>
 <section id="the-euclidean-algorithm-1" class="slide level2">
@@ -339,7 +338,7 @@ class="math inline">\(a\)</span> by <span
 class="math inline">\(n\)</span>.</p>
 <ul>
 <li><span class="math inline">\(a = qn + r\)</span>, <span
-class="math inline">\(0 \leq r \lt n\)</span></li>
+class="math inline">\(\quad 0 \leq r \lt n\)</span></li>
 <li>We write <span class="math inline">\((a \mod n) = r\)</span>.</li>
 <li><span class="math inline">\(n\)</span> is called the
 <em>modulus</em> in this expression.</li>
@@ -349,12 +348,11 @@ class="math inline">\(0 \leq r \lt n\)</span></li>
 <li><span class="math inline">\((11 \mod 7) = 4\)</span> and <span
 class="math inline">\((-11 \mod 4) = 1\)</span>.</li>
 </ul>
-<p>There is an associated binary relation here. We say that two integers
-<span class="math inline">\(a\)</span> and <span
-class="math inline">\(b\)</span> are <em>congruent modulo <span
-class="math inline">\(n\)</span></em>, written as</p>
-<p><span class="math display">\[ a \equiv b \pmod{n},\]</span></p>
-<p>if</p>
+<p>There is an associated binary relation here.</p>
+<p>We say that two integers <span class="math inline">\(a\)</span> and
+<span class="math inline">\(b\)</span> are <em>congruent modulo <span
+class="math inline">\(n\)</span></em></span>, written as <span
+class="math display">\[ a \equiv b \pmod{n},\]</span> if</p>
 <ul>
 <li><span class="math inline">\((a \mod n) = (b \mod n)\)</span></li>
 <li>That is, if <span class="math inline">\(a\)</span> and <span
@@ -449,9 +447,9 @@ class="math inline">\(\mathbb{Z}_n\)</span>.</p>
 <li>If <span class="math inline">\((a+b) \equiv (a+c) \pmod{n}\)</span>
 then <span class="math inline">\(b \equiv c \pmod{n}\)</span>.</li>
 <li>If <span class="math inline">\((a\cdot b) \equiv (a \cdot c)
-\pmod{n}\)</span> then it’s not neccessarily true that <span
+\pmod{n}\)</span> then it’s not necessarily true that <span
 class="math inline">\(b \equiv c \pmod{n}\)</span>.</li>
-<li>However if <span class="math inline">\(a^{-1} \pmod{n}\)</span>
+<li>However, if <span class="math inline">\(a^{-1} \pmod{n}\)</span>
 exists then we can cancel from products as <span
 class="math display">\[a^{-1} (a\cdot b) \equiv a^{-1} (a \cdot c)
 \pmod{n}\]</span> and so <span class="math display">\[(a^{-1}a)\cdot b
@@ -470,14 +468,33 @@ class="math inline">\(\mathbb{Z}_n\)</span>, a multiplicative inverse of
 <span class="math inline">\(a\)</span> modulo <span
 class="math inline">\(n\)</span> will exists if and only if <span
 class="math inline">\(\gcd(a,n)=1\)</span>.</li>
-</ul>
-<p>Terminology</p>
-<ul>
-<li>If <span class="math inline">\(\gcd(x,y)=1\)</span> then <span
-class="math inline">\(x,y\)</span> are said to be <em>relatively
+<li><strong>Terminology</strong>: If <span
+class="math inline">\(\gcd(a,b)=1\)</span> then <span
+class="math inline">\(a,b\)</span> are said to be <em>relatively
 prime</em>, or <em>coprime</em>.</li>
 </ul>
-<p>See Stallings chapter 2 for details.</p>
+<p><strong>Extended Euclidean algorithm</strong></p>
+<ul>
+<li>If <span class="math inline">\(\gcd(a,b) = d\)</span> then the
+<em>Extended Euclidean Algorithm</em> is an algorithm that produces
+integer coefficients <span class="math inline">\(x,y\)</span> such that
+<span class="math display">\[ xa + yb = d.\]</span></li>
+<li>It works by using the integer division with remainder equations from
+the Euclidean algorithm applied to <span
+class="math inline">\(\gcd(a,b)\)</span> and a method of <em>back
+substitution</em> to generate the <span
+class="math inline">\(x,y\)</span>.</li>
+<li>We will demonstrate it by finding <span
+class="math inline">\(x,y\)</span> so that <span class="math inline">\(x
+\cdot 710 + y \cdot 310 = 10\)</span>.</li>
+</ul>
+<p><strong>Connection with multiplicative inverses</strong></p>
+<ul>
+<li>When <span class="math inline">\(\gcd(a,n) = 1\)</span> and we find
+coefficients <span class="math inline">\(x,y\)</span> such that <span
+class="math display">\[xa + yn = 1,\]</span> then <span
+class="math inline">\(x \equiv a^{-1} \pmod{n}\)</span>.</li>
+</ul>
 </section>
 <section id="prime-numbers" class="slide level2">
 <h2>Prime numbers</h2>
@@ -498,9 +515,10 @@ href="https://www.youtube.com/watch?v=ctC33JAV4FI"
 target="_blank">Numberphile video</a> for an accessible discussion of
 the proof of this, and its history.</li>
 <li>The largest prime known to humans is currently <span
-class="math display">\[2^{82,589,933} -1,\]</span> an integer with
-approximately 24 million digits. Discovered in 2018, thanks to the <a
-href="https://www.mersenne.org/" target="_blank">GIMPS</a> project.</li>
+class="math display">\[2^{136,279,841}-1,\]</span> an integer with
+approximately 41 million digits. Discovered in Oct 2024, thanks to the
+<a href="https://www.mersenne.org/" target="_blank">GIMPS</a>
+project.</li>
 </ul>
 </section>
 <section id="primes-make-integers" class="slide level2">
@@ -535,9 +553,10 @@ argument.</li>
 </section>
 <section id="fermats-little-theorem" class="slide level2">
 <h2>Fermat’s Little Theorem</h2>
-<p>We need to understand the behaviour of <em>multiplication</em> and
-<em>exponentiation</em> on <span
-class="math inline">\(\mathbb{Z}_n\)</span>. <strong>Euler’s
+<p>We need to better understand the behaviour of <em>multiplication</em>
+and <em>exponentiation</em> on <span
+class="math inline">\(\mathbb{Z}_n\)</span> in order to understand how
+several <em>public key crytography</em> systems work. <strong>Euler’s
 Theorem</strong> is a result that tells us a lot about how it behaves. A
 simpler first case to look at it called <strong>Fermat’s Little
 Theorem</strong>.</p>
@@ -559,9 +578,10 @@ class="math inline">\(p=19\)</span> we see</p>
 <p><span class="math display">\[7^2 \equiv 49 \equiv 11 \pmod{19} \quad
 7^4 \equiv (7^2)^2 \equiv 11^2 \equiv 121 \equiv 7  \pmod{19}
 \]</span></p>
-<p><span class="math display">\[7^8 \equiv 7^2 \equiv 49 \equiv 11
-\pmod{19} \quad
-7^{16} \equiv 11^2 \equiv 121 \equiv 7  \pmod{19}
+<p><span class="math display">\[7^8 \equiv \left ( 7^4 \right )^2 \equiv
+7^2 \equiv 49 \equiv 11 \pmod{19} \quad
+7^{16} \equiv \left ( 7^8 \right )^2 \equiv 11^2 \equiv 121 \equiv
+7  \pmod{19}
 \]</span></p>
 <p>So now</p>
 <p><span class="math display">\[ a^{p-1} \equiv a^{18} \equiv a^{16+2}
@@ -569,7 +589,7 @@ class="math inline">\(p=19\)</span> we see</p>
 77 \equiv 1 \pmod{19}.\]</span></p>
 <ul>
 <li>These calculations show an example of dealing with large exponents,
-(i.e. 16), by the method of <strong>repeated squares</strong>. More
+(e.g. 18), by the method of <strong>repeated squares</strong>. More
 later.</li>
 </ul>
 </section>
@@ -699,7 +719,7 @@ product</em>, <span class="math display">\[\mathbb{Z}_{m_1} \times
 \mathbb{Z}_{m_2} \times \dots \times \mathbb{Z}_{m_k}\)</span> is a
 <span class="math inline">\(k\)</span>-tuple <span
 class="math display">\[(a_1 , a_2, \dots , a_k),\]</span> where each
-<span class="math inline">\(a_i\)</span> is a residues/remainder modulo
+<span class="math inline">\(a_i\)</span> is a residue/remainder modulo
 <span class="math inline">\(m_i\)</span>.</li>
 </ul>
 </section>
