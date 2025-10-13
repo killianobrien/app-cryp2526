@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Killian O’Brien">
-  <meta name="author" content="6G6Z0024 Applied Cryptography 2024/25">
+  <meta name="author" content="6G6Z0024 Applied Cryptography 2025/26">
   <title>Symmetric ciphers and the Data Encryption Standard (DES)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -41,8 +41,8 @@
   <h1 class="title">Symmetric ciphers and the Data Encryption Standard
 (DES)</h1>
   <p class="author">Killian O’Brien</p>
-  <p class="author">6G6Z0024 Applied Cryptography 2024/25</p>
-  <p class="date">Lecture Week 03 – Wed 16 October 2024</p>
+  <p class="author">6G6Z0024 Applied Cryptography 2025/26</p>
+  <p class="date">Lecture Week 03 – Wed 13 October 2025</p>
 </section>
 
 <section id="introduction-to-the-unit" class="slide level2">
@@ -57,7 +57,7 @@ See Moodle for contact details.</p></li>
 <li><p>Assessment is 100% coursework. A portfolio of exercises.</p></li>
 <li><p>Timetable</p></li>
 <li><p>Let’s look at the <a
-href="https://moodle.mmu.ac.uk/course/view.php?id=183852"
+href="https://moodle.mmu.ac.uk/course/view.php?id=194955"
 target="_blank">Moodle</a> page for the unit.</p></li>
 <li><p>Reading for this topic</p>
 <ul>
@@ -166,8 +166,8 @@ class="math inline">\(1 \oplus 0=1\)</span></li>
 <strong>one-time pad</strong>, a random stream of bits known only to
 sender and recipient. But this is <em>impractical</em>.</li>
 <li>So some kind of keyed algorithm is used to produce the keystream
-<span class="math inline">\(K\)</span>.</li>
-<li>More on stream ciphers later in the unit.</li>
+<span class="math inline">\(K\)</span>.
+<!-- * More on stream ciphers later in the unit.  --></li>
 <li>Figure from Stallings, Ch 4, pg 114</li>
 </ul>
 </section>
@@ -184,8 +184,8 @@ class="math inline">\(K\)</span>, known only to sender and
 recipient.</li>
 <li>More widely used design than stream ciphers.</li>
 <li>Provides a basic encryption/decryption component that can be used to
-build further ciphers, through so-called <em>modes of operation</em>.
-More on this later.</li>
+build further ciphers, through so-called <em>modes of
+operation</em>.<!--  More on this later. --></li>
 <li>Figure from Stallings, Ch 4, pg 114</li>
 </ul>
 </section>
@@ -252,7 +252,8 @@ Claude Shannon. See Stallings chapter 4 for discussion.</li>
 <ul>
 <li>Feistel cipher diagram
 <img src="./images/feistel-structure.png" alt="" style="padding:5spx;float:right;height=100%;"></li>
-<li>Encryption down the left hand side</li>
+<li>Encryption steps are shown down the left hand side of the
+figure</li>
 <li>Plaintext of block length <span class="math inline">\(2w\)</span>
 divided into two halves, <span class="math inline">\(LE_0\)</span> and
 <span class="math inline">\(RE_0\)</span>.</li>
@@ -263,16 +264,18 @@ class="math inline">\(LR_{i-1}\)</span> and a subkey <span
 class="math inline">\(K_i\)</span>, derived from the overall key <span
 class="math inline">\(K\)</span>, and uses a <strong>round
 function</strong> <span class="math inline">\(F\)</span>.</li>
-<li>A <strong>substitution</strong> applied to <span
-class="math inline">\(LE_{i-1}\)</span> to define <span
-class="math inline">\(RE_{i}\)</span> by by <span
-class="math display">\[RE_{i} = F(RE_{i-1}, K_{i}) \oplus
-LE_{i-1}.\]</span></li>
+<li>A combination of <strong>permutation</strong> and
+<strong>substitution</strong> steps applied to <span
+class="math inline">\(LE_{i-1}, RE_{i-1}\)</span> to define <span
+class="math inline">\(LE_{i}, RE_{i}\)</span> by <span
+class="math display">\[LE_{i} := RE_{i-1}, \quad RE_{i} := F(RE_{i-1},
+K_{i}) \oplus LE_{i-1}.\]</span></li>
 <li><span class="math inline">\(\oplus\)</span> is bit-wise <span
 class="math inline">\(\text{XOR}\)</span> operation.</li>
-<li>A <strong>permutation</strong> is then applied for the round to
-output <span class="math display">\[LE_{i} := RE_{i-1} \quad \text{ and
-} RE_{i} = F(RE_{i-1}, K_{i}) \oplus LE_{i-1}.\]</span></li>
+<li>After 16 rounds, a <strong>permutation</strong> is then applied to
+the two halves to produce the final round ouput of <span
+class="math display">\[LE_{17} := RE_{16} \quad \text{ and } RE_{17} :=
+LE_{16}.\]</span></li>
 </ul>
 </section>
 <section id="feistel-cipher-structure-1" class="slide level2">
@@ -284,7 +287,7 @@ output <span class="math display">\[LE_{i} := RE_{i-1} \quad \text{ and
 = RE_{16}\)</span> and <span class="math inline">\(RD_0 =
 LE_{16}\)</span>.</li>
 <li>Round <span class="math inline">\(i\)</span> will output <span
-class="math display">\[LD_{i} := RD_{i-1} \quad \text{ and } RD_{i} =
+class="math display">\[LD_{i} := RD_{i-1} \quad \text{ and } RD_{i} :=
 F(RD_{i-1}, K_{16-(i-1)}) \oplus LD_{i-1}.\]</span></li>
 <li>Note that the output of decryption round <span
 class="math inline">\(i\)</span> will be the swap of the two halves of
@@ -306,10 +309,15 @@ and } RD_1 = LE_{15}.\]</span></li>
 <section id="feistel-cipher-structure-2" class="slide level2">
 <h2>Feistel cipher structure</h2>
 <ul>
+<li>So notice that the encryption and decryption algorithms <strong>are
+the very same algorithm</strong>, except that the decryption algorithm
+uses the subkey sequence in reverse, i.e. 
+<img src="./images/feistel-structure.png" alt="" style="padding:5spx;float:right;height=100%;">
+<span class="math display">\[K_{16}, K_{15}, \dots , K_2, K_2,
+K_1.\]</span></li>
 <li>The repeated <strong>substitutions</strong> using <span
 class="math inline">\(F\)</span> and <strong>permutations</strong>
-ensure that the original plaintext is strongly encrypted.
-<img src="./images/feistel-structure.png" alt="" style="padding:5spx;float:right;height=100%;"></li>
+ensure that the original plaintext is strongly encrypted.</li>
 <li>Exact implementation of a Fesitel cipher will depend on:
 <ul>
 <li><strong>Block size</strong>: Larger size means more security, but

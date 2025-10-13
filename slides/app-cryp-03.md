@@ -2,8 +2,8 @@
 title: "Symmetric ciphers and the Data Encryption Standard (DES)"
 author:
 - Killian O'Brien
-- 6G6Z0024 Applied Cryptography 2024/25
-date: Lecture Week 03 -- Wed 16 October 2024
+- 6G6Z0024 Applied Cryptography 2025/26
+date: Lecture Week 03 -- Wed 13 October 2025
 transition: fade
 theme: killian
 width: 1920
@@ -29,7 +29,7 @@ title-slide-attributes:
 
 * Timetable
 
-* Let's look at the [Moodle](https://moodle.mmu.ac.uk/course/view.php?id=183852){target="_blank"} page for the unit.
+* Let's look at the [Moodle](https://moodle.mmu.ac.uk/course/view.php?id=194955){target="_blank"} page for the unit.
 
 * Reading for this topic
     - <a href="https://mmu.on.worldcat.org/oclc/1334132058" target="_blank">Stallings, Chapter 3, Just Section 3.1: Symmetric Cipher Model</a>
@@ -77,7 +77,7 @@ Some definitions, (Stallings, *Cryptography and Network Security*, Ch. 3)
     - $0 \oplus 1 = 1$, $1 \oplus 0=1$
 * Ideal $K$ is so-called **one-time pad**, a random stream of bits known only to sender and recipient. But this is *impractical*.
 * So some kind of keyed algorithm is used to produce the keystream $K$. 
-* More on stream ciphers later in the unit. 
+<!-- * More on stream ciphers later in the unit.  -->
 * Figure from Stallings, Ch 4, pg 114
 
 ## Stream and Block ciphers
@@ -86,7 +86,7 @@ Some definitions, (Stallings, *Cryptography and Network Security*, Ch. 3)
 * Plaintext $P$ divided into *blocks* of fixed bit-length $b$, typically 64 or 128 bits used.
 * Encryption and decryption algortihms depend on same key $K$, known only to sender and recipient. 
 * More widely used design than stream ciphers. 
-* Provides a basic encryption/decryption component that can be used to build further ciphers, through so-called *modes of operation*. More on this later.
+* Provides a basic encryption/decryption component that can be used to build further ciphers, through so-called *modes of operation*.<!--  More on this later. -->
 * Figure from Stallings, Ch 4, pg 114
 
 ## Possibilities for block ciphers
@@ -114,22 +114,22 @@ Some definitions, (Stallings, *Cryptography and Network Security*, Ch. 3)
 ## Feistel cipher structure
 
 * Feistel cipher diagram <img src="./images/feistel-structure.png" alt="" style="padding:5spx;float:right;height=100%;"> 
-* Encryption down the left hand side
+* Encryption steps are shown down the left hand side of the figure
 * Plaintext of block length $2w$ divided into two halves, $LE_0$ and $RE_0$.
 * Repeated rounds of processing applied.
 * Round $i$ takes inputs $LE_{i-1}$, $LR_{i-1}$ and a subkey $K_i$, derived from the overall key $K$, and uses a **round function** $F$.
-* A **substitution** applied to $LE_{i-1}$ to define $RE_{i}$ by  by
-$$RE_{i} = F(RE_{i-1}, K_{i}) \oplus LE_{i-1}.$$
+* A combination of **permutation** and **substitution** steps applied to $LE_{i-1}, RE_{i-1}$ to define $LE_{i}, RE_{i}$ by
+$$LE_{i} := RE_{i-1}, \quad RE_{i} := F(RE_{i-1}, K_{i}) \oplus LE_{i-1}.$$
 * $\oplus$ is bit-wise $\text{XOR}$ operation.
-* A **permutation** is then applied for the round to output
-$$LE_{i} := RE_{i-1} \quad \text{ and } RE_{i} = F(RE_{i-1}, K_{i}) \oplus LE_{i-1}.$$
+* After 16 rounds, a **permutation** is then applied to the two halves to produce the final round ouput of 
+$$LE_{17} := RE_{16} \quad \text{ and } RE_{17} := LE_{16}.$$
 
 ## Feistel cipher structure
 
 * Decryption takes place up the right hand side. <img src="./images/feistel-structure.png" alt="" style="padding:5spx;float:right;height=100%;"> 
 * Ciphertext divided into two halves, $LD_0 = RE_{16}$ and $RD_0 = LE_{16}$.
 * Round $i$ will output
-$$LD_{i} := RD_{i-1} \quad \text{ and } RD_{i} = F(RD_{i-1}, K_{16-(i-1)}) \oplus LD_{i-1}.$$
+$$LD_{i} := RD_{i-1} \quad \text{ and } RD_{i} := F(RD_{i-1}, K_{16-(i-1)}) \oplus LD_{i-1}.$$
 * Note that the output of decryption round $i$ will be the swap of the two halves of the input to encryption round $16-(i-1)$, for example
 $$LD_1 = RD_0 = LE_{16} = RE_{15}, \text{ and}$$
 $$RD_1 = LD_{0} \oplus F(RD_0, K_{16}) = RE_{16} \oplus F(RE_{15},K_{16})$$
@@ -141,7 +141,10 @@ $$LD_{1} = RE_{15} \text{ and } RD_1 = LE_{15}.$$
 
 ## Feistel cipher structure
 
-* The repeated **substitutions** using $F$ and **permutations** ensure that the original plaintext is strongly encrypted. <img src="./images/feistel-structure.png" alt="" style="padding:5spx;float:right;height=100%;"> 
+* So notice that the encryption and decryption algorithms **are the very same algorithm**, except that the decryption algorithm uses the subkey sequence in reverse, i.e. 
+<img src="./images/feistel-structure.png" alt="" style="padding:5spx;float:right;height=100%;"> 
+$$K_{16}, K_{15}, \dots , K_2, K_2, K_1.$$ 
+* The repeated **substitutions** using $F$ and **permutations** ensure that the original plaintext is strongly encrypted. 
 * Exact implementation of a Fesitel cipher will depend on:
     - **Block size**: Larger size means more security, but slower computation speed. A trade-off of $64$ bits has traditionally been used. However, the newer scheme AES uses $128$-bit blocks.
     - **Key size**: Again, larger means more secure but may decrease computation speed. Key sizes of less than 64 bits now considered inadequate and 128 bits or longer has become common. 
