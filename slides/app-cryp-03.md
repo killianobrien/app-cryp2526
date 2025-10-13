@@ -3,7 +3,7 @@ title: "Symmetric ciphers and the Data Encryption Standard (DES)"
 author:
 - Killian O'Brien
 - 6G6Z0024 Applied Cryptography 2025/26
-date: Lecture Week 03 -- Wed 13 October 2025
+date: Lecture Week 03 -- Mon 13 October 2025
 transition: fade
 theme: killian
 width: 1920
