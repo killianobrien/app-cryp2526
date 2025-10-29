@@ -61,7 +61,7 @@ jupyter notebook
 pip install sympy
 ~~~
 
-If these steps have been successful you should now have a working set-up that will allow you to work on your coursework just like in the labs. Best practice is to have your working directory under your MMU Onderive so that everything is backed up, synced up and available to you wherever you are. 
+If these steps have been successful you should now have a working set-up that will allow you to work on your coursework just like in the labs. Best practice is to have your working directory under your MMU Onedrive so that everything is backed up, synced up and available to you wherever you are. 
 
 
 
