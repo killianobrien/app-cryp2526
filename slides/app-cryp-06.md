@@ -2,8 +2,8 @@
 title: "Advanced Encryption Standard (AES)"
 author:
 - Killian O'Brien
-- 6G6Z0024 Applied Cryptography 2023/24
-date: Lecture Week 06 --  Wed 06 November 2024
+- 6G6Z0024 Applied Cryptography 2025/26
+date: Lecture Week 06 --  Mon 02 November 2025
 transition: fade
 theme: killian
 width: 1920
@@ -41,8 +41,8 @@ of degree $n-1$ or less.
  $$m(x) = x^8 + x^4 + x^3 + x +1.$$
  * The figure on the right shows the calculation of an example product in $\text{GF}(2^8)$.
  * AES uses this since it is designed to operate on 8-bit bytes.
-    - addition of bytes is just bit-wise $\text{XOR}$.
-    - *multiplication* of bytes is defined as multiplication in the finite field $\text{GF}(2^8)$, modulo the irreducible polynomial $m(x) = x^8 + x^4 + x^3 + x +1.$
+    - Addition of bytes is just bit-wise $\text{XOR}$.
+    - *Multiplication* of bytes is defined as multiplication in the finite field $\text{GF}(2^8)$, modulo the irreducible polynomial $m(x) = x^8 + x^4 + x^3 + x +1.$
 
 ## The structure of AES
 
@@ -50,11 +50,11 @@ of degree $n-1$ or less.
 * Various key lengths allowed, 16, 24 or 32 bytes. Ciphers referred to as AES-128, AES-192 or AES-256, depending on how many bits used in key. 
 * Throughout encryption (and decryption) the message block is maintained as a $4 \times 4$ array of bytes. This is referred to as the **state**.
 * First four bytes form the first column, next four bytes the second column, and so on. 
-* An initial transformation of the state is followed by $N$ rounds. Where $N$ depends on the ley length used.
+* An initial transformation of the state is followed by $N$ rounds. Where $N$ depends on the key length used.
     - $N=10$ for 128 bit key.
     - $N=12$ for 192 bit key.
     - $N=14$ for 256 bit key.
-* The key passes through a *key explansion* transformation to provide $N+1$ sub-keys to be used in the initial transformation and $N$ rounds. 
+* The key passes through a *key expansion* transformation to provide $N+1$ sub-keys to be used in the initial transformation and $N$ rounds. 
 * Each sub-key consists for four 4-byte **words**, which form the columns of the **round key matrix**.
 
 ## AES detail
@@ -64,7 +64,7 @@ of degree $n-1$ or less.
 * Rounds 1 - 9 consists of four transformations
     - **Substitute bytes**: and S-box type permutation of the bytes of the state. 
     - **Shift rows**: a simple permutation of the bytes within each row of the state. 
-    - **Mix columns**: a transformation that combines the bytes within each column of the state. This transformation utilies the $\text{GF}(2^8)$ field.
+    - **Mix columns**: a transformation that combines the bytes within each column of the state. This transformation uses the $\text{GF}(2^8)$ field.
     - **Add round key**: bit-wise $\text{XOR}$ of the state with the appropriate round key matrix. 
 * The decryption algorithm reverses all the transformations. At each horizontal level, the intermediate states of the encryption and decryption algorithms are the same. 
 
@@ -75,7 +75,7 @@ of degree $n-1$ or less.
 
 ## Substitute bytes
 
-* <img src="./images/subsbytes.png" alt="Stallings" style="padding:5spx;width=150px;float:right"> This figure shows the how the substitute bytes transformation is defined. 
+* <img src="./images/subsbytes.png" alt="Stallings" style="padding:5spx;width=150px;float:right"> This figure shows how the substitute bytes transformation is defined. 
 * For each entry of the incoming state matrix, i.e. for each byte
     - the first four bits denote the row index $x$ of the S-box
     - the second four bits denote the column index $y$ of the S-box
@@ -89,7 +89,7 @@ of degree $n-1$ or less.
     - a four bit block is denoted by a hexadecimal digit `0,1,...9,a,b,c,d,e,f`.
     - a single byte (i.e. a 8-bit block) is denoted by a two-digit hexadecimal number.
 * A corresponding inverse S-box table is used in the decryption algorithm.
-* Lots of detail in Stallings on the contruction of this S-box table. 
+* Lots of detail in Stallings on the construction of this S-box table. 
     - Designed like this to minimize any correlation between incoming and outgoing bits.
     - The construction of the S-box table involves the process of taking multiplicative inverses in $\text{GF}(2^8)$, after interpreting the 8-bit bytes as polynomials formed from that sequence of 8 binary coefficients. 
 * An example substitute bytes transformation is shown here <img src="./images/egsbox.png" alt="Stallings" style="padding:5spx;width=80px;"> 
@@ -153,7 +153,7 @@ $$w_{4i + 0}, w_{4i + 1},w_{4i + 2},w_{4i + 3}.$$
 
 * These transformations were chosen to ensure these features, amongst others, 
     - speedy implementations in software and chip hardware,
-    - partial knowledge of the original key or intermediate round keys will not enable determination of many other bits of other key words,
+    - partial knowledge of the original key or intermediate round keys will not enable determination of many other bits of other keywords,
     - use of different round constants eliminates any potential symmetries in the round key generations,
     - diffusion, i.e. each bit of the original key effects many round key bits.
 

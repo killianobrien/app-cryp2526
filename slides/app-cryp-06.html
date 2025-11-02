@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Killian O’Brien">
-  <meta name="author" content="6G6Z0024 Applied Cryptography 2023/24">
+  <meta name="author" content="6G6Z0024 Applied Cryptography 2025/26">
   <title>Advanced Encryption Standard (AES)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -40,8 +40,8 @@
 5%" data-background-repeat="no-repeat" data-background-size="18%">
   <h1 class="title">Advanced Encryption Standard (AES)</h1>
   <p class="author">Killian O’Brien</p>
-  <p class="author">6G6Z0024 Applied Cryptography 2023/24</p>
-  <p class="date">Lecture Week 06 – Wed 06 November 2024</p>
+  <p class="author">6G6Z0024 Applied Cryptography 2025/26</p>
+  <p class="date">Lecture Week 06 – Mon 02 November 2025</p>
 </section>
 
 <section id="introduction" class="slide level2">
@@ -94,9 +94,9 @@ polynomial operations carried out modulo the irreducible polynomial
 in <span class="math inline">\(\text{GF}(2^8)\)</span>.</li>
 <li>AES uses this since it is designed to operate on 8-bit bytes.
 <ul>
-<li>addition of bytes is just bit-wise <span
+<li>Addition of bytes is just bit-wise <span
 class="math inline">\(\text{XOR}\)</span>.</li>
-<li><em>multiplication</em> of bytes is defined as multiplication in the
+<li><em>Multiplication</em> of bytes is defined as multiplication in the
 finite field <span class="math inline">\(\text{GF}(2^8)\)</span>, modulo
 the irreducible polynomial <span class="math inline">\(m(x) = x^8 + x^4
 + x^3 + x +1.\)</span></li>
@@ -118,13 +118,13 @@ bytes. This is referred to as the <strong>state</strong>.</li>
 column, and so on.</li>
 <li>An initial transformation of the state is followed by <span
 class="math inline">\(N\)</span> rounds. Where <span
-class="math inline">\(N\)</span> depends on the ley length used.
+class="math inline">\(N\)</span> depends on the key length used.
 <ul>
 <li><span class="math inline">\(N=10\)</span> for 128 bit key.</li>
 <li><span class="math inline">\(N=12\)</span> for 192 bit key.</li>
 <li><span class="math inline">\(N=14\)</span> for 256 bit key.</li>
 </ul></li>
-<li>The key passes through a <em>key explansion</em> transformation to
+<li>The key passes through a <em>key expansion</em> transformation to
 provide <span class="math inline">\(N+1\)</span> sub-keys to be used in
 the initial transformation and <span class="math inline">\(N\)</span>
 rounds.</li>
@@ -147,7 +147,7 @@ bytes of the state.</li>
 <li><strong>Shift rows</strong>: a simple permutation of the bytes
 within each row of the state.</li>
 <li><strong>Mix columns</strong>: a transformation that combines the
-bytes within each column of the state. This transformation utilies the
+bytes within each column of the state. This transformation uses the
 <span class="math inline">\(\text{GF}(2^8)\)</span> field.</li>
 <li><strong>Add round key</strong>: bit-wise <span
 class="math inline">\(\text{XOR}\)</span> of the state with the
@@ -171,7 +171,7 @@ round.</li>
 <h2>Substitute bytes</h2>
 <ul>
 <li><img src="./images/subsbytes.png" alt="Stallings" style="padding:5spx;width=150px;float:right">
-This figure shows the how the substitute bytes transformation is
+This figure shows how the substitute bytes transformation is
 defined.</li>
 <li>For each entry of the incoming state matrix, i.e. for each byte
 <ul>
@@ -200,7 +200,7 @@ hexadecimal number.</li>
 </ul></li>
 <li>A corresponding inverse S-box table is used in the decryption
 algorithm.</li>
-<li>Lots of detail in Stallings on the contruction of this S-box table.
+<li>Lots of detail in Stallings on the construction of this S-box table.
 <ul>
 <li>Designed like this to minimize any correlation between incoming and
 outgoing bits.</li>
@@ -332,8 +332,7 @@ amongst others,</p>
 <ul>
 <li>speedy implementations in software and chip hardware,</li>
 <li>partial knowledge of the original key or intermediate round keys
-will not enable determination of many other bits of other key
-words,</li>
+will not enable determination of many other bits of other keywords,</li>
 <li>use of different round constants eliminates any potential symmetries
 in the round key generations,</li>
 <li>diffusion, i.e. each bit of the original key effects many round key
@@ -512,7 +511,7 @@ Chapter 6: AES</a></p></li>
         margin: 5.0e-2,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          mathjax: '/usr/share/javascript/mathjax/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
