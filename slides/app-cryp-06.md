@@ -33,7 +33,7 @@ title-slide-attributes:
 $$f(x) = a_{n-1} x^{n-1} + a_{n-2} x^{n-2} + \dots + a_1 x + a_0 = \sum_{i=0}^{n-1} a_i x^i, \quad a_i \in \mathbb{Z}_2.$$
 of degree $n-1$ or less.
 * Arithmetic follows the rules of $+$ and $\cdot$ for polynomials, with arithmetic of the coefficients $a_i$ carried out in $\mathbb{Z}_2$, i.e. addition of coefficients is the same as $\text{XOR}$.
-* If multiplication results in a polynomial of degree greater than $n-1$ then the product is reduced modulo a specified irreducible polynomial $m(x)$ of degree $n$, the modulos polynomial. 
+* If multiplication results in a polynomial of degree greater than $n-1$ then the product is reduced modulo a specified irreducible polynomial $m(x)$ of degree $n$, the modulus polynomial. 
 
 ## AES and $\text{GF}(2^8)$. 
 
