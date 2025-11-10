@@ -87,6 +87,8 @@ $$M = D \big ( PR_b, E(PU_b,M) \big ) = D \big ( PU_b, E(PR_b,M) \big ) .$$
 * Typicall size for $n$ might be 1024 bits, or around 309 decimal digits.
 * RSA makes use of exponentials in modular arithmetic. 
 * The message $M$ is an integer in the range $0 \leq M \leq n-1$. 
+<div style="color:blue; padding:5px;height=50%;float:right">Euler's Theorem:<br> $M^{\phi(n)} \equiv 1 \pmod{n}$</div>
+
 * The receiver chooses integers $e$ and $d$, with the property that
 $$ed \equiv 1 \pmod{\phi(n)},$$
 i.e. $e$ and $d$ are multiplicative inverses of each other modulo the Euler totient function value $\phi(n)$.
@@ -95,7 +97,7 @@ i.e. $e$ and $d$ are multiplicative inverses of each other modulo the Euler toti
 $$C = (M^e \, \, \text{mod} \, \, n).$$
 * The ciphertext $C$ is decrypted as 
 $$ (C^d \, \, \text{mod} \, \, n ) = ((M^e)^d \, \, \text{mod} \, \, n ) = (M^{ed} \, \, \text{mod} \, \, n ) = (M^1 \, \, \text{mod} \, \, n) = M.$$
-* The security comes from the fact that computing $\phi(n)$ from $n$ is **hard**. 
+* The security comes from the fact that computing $\phi(n)$ from $n$ is **hard**. And $\phi(n)$ is needed in order to compute the pair $e,d$ with the $ed \equiv 1 \pmod{\phi(n)}$ property.  
 
 ## RSA procedure
 

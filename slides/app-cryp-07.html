@@ -199,7 +199,11 @@ class="math inline">\(n\)</span>.</li>
 1024 bits, or around 309 decimal digits.</li>
 <li>RSA makes use of exponentials in modular arithmetic.</li>
 <li>The message <span class="math inline">\(M\)</span> is an integer in
-the range <span class="math inline">\(0 \leq M \leq n-1\)</span>.</li>
+the range <span class="math inline">\(0 \leq M \leq n-1\)</span>.
+<div style="color:blue; padding:5px;height=50%;float:right">
+Euler’s Theorem:<br> <span class="math inline">\(M^{\phi(n)} \equiv 1
+\pmod{n}\)</span>
+</div></li>
 <li>The receiver chooses integers <span class="math inline">\(e\)</span>
 and <span class="math inline">\(d\)</span>, with the property that <span
 class="math display">\[ed \equiv 1 \pmod{\phi(n)},\]</span> i.e. <span
@@ -218,7 +222,10 @@ as <span class="math display">\[ (C^d \, \, \text{mod} \, \, n ) =
 = (M^1 \, \, \text{mod} \, \, n) = M.\]</span></li>
 <li>The security comes from the fact that computing <span
 class="math inline">\(\phi(n)\)</span> from <span
-class="math inline">\(n\)</span> is <strong>hard</strong>.</li>
+class="math inline">\(n\)</span> is <strong>hard</strong>. And <span
+class="math inline">\(\phi(n)\)</span> is needed in order to compute the
+pair <span class="math inline">\(e,d\)</span> with the <span
+class="math inline">\(ed \equiv 1 \pmod{\phi(n)}\)</span> property.</li>
 </ul>
 </section>
 <section id="rsa-procedure" class="slide level2">
