@@ -8077,16 +8077,6 @@ $\displaystyle -23$
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b8f8e685-6d06-4835-a242-df37cc90c170">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=786cf673-50ca-45ce-8355-b3f98c51d714">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8244,7 +8234,7 @@ $\displaystyle 1$
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;generator object primerange at 0x7f057413af60&gt;</pre>
+<pre>&lt;generator object primerange at 0x7f2b9f79d7d0&gt;</pre>
 </div>
 </div>
 </div>
@@ -8475,7 +8465,7 @@ $\displaystyle 725$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>I let this command run for about 10 minutes, but it could not find any factors within that time. Who knows when it might return any factors .... If you do execute this command on your computer. You can interrupt the kernel to stop the coomputation using the Kernel menu above.</p>
+<p>I let this following command run for about 10 minutes, but it could not find any factors within that time. Who knows when it might return any factors .... If you do execute this command on your computer. You can interrupt the kernel to stop the computation using the Kernel menu above.</p>
 </div>
 </div>
 </div>
@@ -8513,6 +8503,7 @@ Trial division with primes [7220 ... 14440]
 Pollard's p-1 with smoothness bound 7220 and seed 14440
 Pollard's rho with retries 1, max_steps 7220 and seed 14440
 Elliptic Curve with B1 bound 10000, B2 bound 1000000, num_curves 50
+Elliptic Curve with B1 bound 50000, B2 bound 5000000, num_curves 200
 </pre>
 </div>
 </div>
@@ -8537,21 +8528,33 @@ File <span class="ansi-green-fg">~/sage/local/var/lib/sage/venv-python3.12.4/lib
 <span class="ansi-green-intense-fg ansi-bold">   1444</span>                        verbose<span style="color: rgb(98,98,98)">=</span>verbose)
 <span class="ansi-green-intense-fg ansi-bold">   1445</span>         n, _ <span style="color: rgb(98,98,98)">=</span> _trial(factors, n, ps, verbose<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
 
-File <span class="ansi-green-fg">~/sage/local/var/lib/sage/venv-python3.12.4/lib/python3.12/site-packages/sympy/ntheory/ecm.py:267</span>, in <span class="ansi-cyan-fg">_ecm_one_factor</span><span class="ansi-blue-fg">(n, B1, B2, max_curve)</span>
-<span class="ansi-green-intense-fg ansi-bold">    263</span>     <span style="color: rgb(95,135,135)"># We want to calculate</span>
-<span class="ansi-green-intense-fg ansi-bold">    264</span>     <span style="color: rgb(95,135,135)"># f = R.x_cord * S[delta].z_cord - S[delta].x_cord * R.z_cord</span>
-<span class="ansi-green-intense-fg ansi-bold">    265</span>     f <span style="color: rgb(98,98,98)">=</span> (R<span style="color: rgb(98,98,98)">.</span>x_cord <span style="color: rgb(98,98,98)">-</span> S[delta]<span style="color: rgb(98,98,98)">.</span>x_cord)<span style="color: rgb(98,98,98)">*</span>\
-<span class="ansi-green-intense-fg ansi-bold">    266</span>         (R<span style="color: rgb(98,98,98)">.</span>z_cord <span style="color: rgb(98,98,98)">+</span> S[delta]<span style="color: rgb(98,98,98)">.</span>z_cord) <span style="color: rgb(98,98,98)">-</span> alpha <span style="color: rgb(98,98,98)">+</span> beta[delta]
-<span class="ansi-green-fg">--&gt; 267</span>     g <span style="color: rgb(98,98,98)">=</span> (<span class="ansi-yellow-bg">g</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">f</span>) <span style="color: rgb(98,98,98)">%</span> n
-<span class="ansi-green-intense-fg ansi-bold">    268</span> <span style="color: rgb(95,135,135)">#Swap</span>
-<span class="ansi-green-intense-fg ansi-bold">    269</span> T, R <span style="color: rgb(98,98,98)">=</span> R, R<span style="color: rgb(98,98,98)">.</span>add(S[D], T)
+File <span class="ansi-green-fg">~/sage/local/var/lib/sage/venv-python3.12.4/lib/python3.12/site-packages/sympy/ntheory/ecm.py:234</span>, in <span class="ansi-cyan-fg">_ecm_one_factor</span><span class="ansi-blue-fg">(n, B1, B2, max_curve)</span>
+<span class="ansi-green-intense-fg ansi-bold">    231</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> g
+<span class="ansi-green-intense-fg ansi-bold">    233</span> Q <span style="color: rgb(98,98,98)">=</span> Point(u_3, <span style="color: rgb(0,135,0)">pow</span>(v, <span style="color: rgb(98,98,98)">3</span>, n), a24, n)
+<span class="ansi-green-fg">--&gt; 234</span> Q <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">Q</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">mont_ladder</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">k</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    235</span> g <span style="color: rgb(98,98,98)">=</span> gcd(Q<span style="color: rgb(98,98,98)">.</span>z_cord, n)
+<span class="ansi-green-intense-fg ansi-bold">    237</span> <span style="color: rgb(95,135,135)">#Stage 1 factor</span>
+
+File <span class="ansi-green-fg">~/sage/local/var/lib/sage/venv-python3.12.4/lib/python3.12/site-packages/sympy/ntheory/ecm.py:146</span>, in <span class="ansi-cyan-fg">Point.mont_ladder</span><span class="ansi-blue-fg">(self, k)</span>
+<span class="ansi-green-intense-fg ansi-bold">    144</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> i <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">bin</span>(k)[<span style="color: rgb(98,98,98)">3</span>:]:
+<span class="ansi-green-intense-fg ansi-bold">    145</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span>  i  <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">1</span><span style="color: rgb(175,0,0)">'</span>:
+<span class="ansi-green-fg">--&gt; 146</span>         Q <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">R</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">add</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">Q</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    147</span>         R <span style="color: rgb(98,98,98)">=</span> R<span style="color: rgb(98,98,98)">.</span>double()
+<span class="ansi-green-intense-fg ansi-bold">    148</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+
+File <span class="ansi-green-fg">~/sage/local/var/lib/sage/venv-python3.12.4/lib/python3.12/site-packages/sympy/ntheory/ecm.py:92</span>, in <span class="ansi-cyan-fg">Point.add</span><span class="ansi-blue-fg">(self, Q, diff)</span>
+<span class="ansi-green-intense-fg ansi-bold">     90</span> v <span style="color: rgb(98,98,98)">=</span> (<span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>x_cord <span style="color: rgb(98,98,98)">+</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>z_cord)<span style="color: rgb(98,98,98)">*</span>(Q<span style="color: rgb(98,98,98)">.</span>x_cord <span style="color: rgb(98,98,98)">-</span> Q<span style="color: rgb(98,98,98)">.</span>z_cord)
+<span class="ansi-green-intense-fg ansi-bold">     91</span> add, subt <span style="color: rgb(98,98,98)">=</span> u <span style="color: rgb(98,98,98)">+</span> v, u <span style="color: rgb(98,98,98)">-</span> v
+<span class="ansi-green-fg">---&gt; 92</span> x_cord <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">diff</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">z_cord</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">add</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">add</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">%</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">mod</span>
+<span class="ansi-green-intense-fg ansi-bold">     93</span> z_cord <span style="color: rgb(98,98,98)">=</span> diff<span style="color: rgb(98,98,98)">.</span>x_cord <span style="color: rgb(98,98,98)">*</span> subt <span style="color: rgb(98,98,98)">*</span> subt <span style="color: rgb(98,98,98)">%</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>mod
+<span class="ansi-green-intense-fg ansi-bold">     94</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> Point(x_cord, z_cord, <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>a_24, <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>mod)
 
 <span class="ansi-red-fg">KeyboardInterrupt</span>: </pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ac3e00e2-817e-4728-869a-dc7b4ba15c7e">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b1f71c08-ec8d-412c-ae11-268556e0833d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>

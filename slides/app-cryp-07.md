@@ -2,15 +2,15 @@
 title: "Public Key Cryptography"
 author:
 - Killian O'Brien
-- 6G6Z0024 Applied Cryptography 2024/25
-date: Lecture Week 07 -- Wed 13 November 2024
+- 6G6Z0024 Applied Cryptography 2025/26
+date: Lecture Week 07 -- Mon 10 November 2025 
 transition: fade
 theme: killian
 width: 1920
 height: 1080
 margin: 0.05
 center: false
-revealjs-url: ../reveal.js
+revealjs-url: ../reveal.js2
 title-slide-attributes:
     data-background-color: rgb(0,47,108)	
     data-background-image: logowhite.png
@@ -113,7 +113,7 @@ $$\phi(n) = \phi(pq) = (p-1)\cdot (q-1).$$
 
 * RSA involves using $c,d$ that are multiplicative inverses of each other modulo $\phi(n)$. 
 * Multiplicative inverses are found using the extended Euclidean algorithm
-    - If $a$ is coprime to a modulus $m$, i.e. $\gcd(a,m) = 1,
+    - If $a$ is coprime to a modulus $m$, i.e. $\gcd(a,m) = 1$,
     - Run the extended Euclidean algorithm to find integer coefficients $x,y$ satisfying
     $$xa + ym = 1.$$
     - Then the inverse is given by 
@@ -134,7 +134,7 @@ $$\phi(n) = \phi(pq) = (p-1)\cdot (q-1).$$
 * Factorization of large $n$ is computationally **hard**
     - even when using advanced *number field sieve* factoring algorithms. 
 * But computational power increases and theoretical advancements should be expected to continue.
-* The counter to both these possibilities is to increase the size of $n$, to make factoring harder.
+* The reaction to both these possibilities is to increase the size of $n$, to make factoring harder.
 * Recent advice from standards agencies
     - NIST 2015 recommends key lengths of 2048 bits or longer.
     - EU Agency for Network ad Information Security 2014 recommends 3072 bits for future developments.

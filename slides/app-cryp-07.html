@@ -4,17 +4,20 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Killian O’Brien">
-  <meta name="author" content="6G6Z0024 Applied Cryptography 2024/25">
+  <meta name="author" content="6G6Z0024 Applied Cryptography 2025/26">
   <title>Public Key Cryptography</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../reveal.js/dist/reset.css">
-  <link rel="stylesheet" href="../reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="../reveal.js2/dist/reset.css">
+  <link rel="stylesheet" href="../reveal.js2/dist/reveal.css">
   <style>
     .reveal .sourceCode {  /* see #7635 */
       overflow: visible;
     }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,7 +33,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../reveal.js/dist/theme/killian.css" id="theme">
+  <link rel="stylesheet" href="../reveal.js2/dist/theme/killian.css" id="theme">
 </head>
 <body>
   <div class="reveal">
@@ -40,8 +43,8 @@
 5%" data-background-repeat="no-repeat" data-background-size="18%">
   <h1 class="title">Public Key Cryptography</h1>
   <p class="author">Killian O’Brien</p>
-  <p class="author">6G6Z0024 Applied Cryptography 2024/25</p>
-  <p class="date">Lecture Week 07 – Wed 13 November 2024</p>
+  <p class="author">6G6Z0024 Applied Cryptography 2025/26</p>
+  <p class="date">Lecture Week 07 – Mon 10 November 2025</p>
 </section>
 
 <section id="introduction-and-initial-promise" class="slide level2">
@@ -265,7 +268,8 @@ class="math inline">\(\phi(n)\)</span>.</li>
 algorithm
 <ul>
 <li>If <span class="math inline">\(a\)</span> is coprime to a modulus
-<span class="math inline">\(m\)</span>, i.e. $(a,m) = 1,</li>
+<span class="math inline">\(m\)</span>, i.e. <span
+class="math inline">\(\gcd(a,m) = 1\)</span>,</li>
 <li>Run the extended Euclidean algorithm to find integer coefficients
 <span class="math inline">\(x,y\)</span> satisfying <span
 class="math display">\[xa + ym = 1.\]</span></li>
@@ -295,7 +299,7 @@ algorithms.</li>
 </ul></li>
 <li>But computational power increases and theoretical advancements
 should be expected to continue.</li>
-<li>The counter to both these possibilities is to increase the size of
+<li>The reaction to both these possibilities is to increase the size of
 <span class="math inline">\(n\)</span>, to make factoring harder.</li>
 <li>Recent advice from standards agencies
 <ul>
@@ -332,13 +336,13 @@ on Miller-Rabin test)</li>
     </div>
   </div>
 
-  <script src="../reveal.js/dist/reveal.js"></script>
+  <script src="../reveal.js2/dist/reveal.js"></script>
 
   <!-- reveal.js plugins -->
-  <script src="../reveal.js/plugin/notes/notes.js"></script>
-  <script src="../reveal.js/plugin/search/search.js"></script>
-  <script src="../reveal.js/plugin/zoom/zoom.js"></script>
-  <script src="../reveal.js/plugin/math/math.js"></script>
+  <script src="../reveal.js2/plugin/notes/notes.js"></script>
+  <script src="../reveal.js2/plugin/search/search.js"></script>
+  <script src="../reveal.js2/plugin/zoom/zoom.js"></script>
+  <script src="../reveal.js2/plugin/math/math.js"></script>
 
   <script>
 
