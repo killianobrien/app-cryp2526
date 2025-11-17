@@ -35,7 +35,7 @@ In this lecture we shall look at
   
 **DH key exchange**
 
-* Diffie-Hellman key exchange (1976) is a method that allows two parties to agree on a shared secret (number) by the exchange unencrypted messages.
+* Diffie-Hellman key exchange (1976) is a method that allows two parties to agree on a shared secret (number) by the exchange of unencrypted messages.
 * This shared secret can then be used to generate a shared secret key to enable secure, encrypted communication. 
 * DH key exchange uses a tool from modular arithmetic called *discrete logarithms*.
 
