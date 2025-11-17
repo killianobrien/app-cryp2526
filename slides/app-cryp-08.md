@@ -48,7 +48,7 @@ In this lecture we shall look at
 * **Logarithms** -- These are the *inverses* of exponentials. 
     - So if $c=a^b$ then
     - $\log_a(c) = b$. 
-    - We say $b$ is the *logarithm*, with base $a$, of $c$. 
+    - We say $b$ is the **logarithm, with base $a$, of $c$**. 
 * You might see a function $\log$ mentioned without a base. Its meaning is usually determined by context/discipline in which it is used.  
     - Computer scientists would usually mean $\log_2$,
     - Mathematicians would usually mean $\log_e$, the *natural logarithm*,
@@ -61,6 +61,7 @@ In this lecture we shall look at
     - $b$ is the discrete logarithm of $c$, to the base $a$, modulo $p$. 
     - Stallings introduces the notation $$b = \text{dlog}_{a,p}(c).$$
 * Usually the base used is a *primitive root* modulo $p$, i.e. a number $a$ whose powers generate **ALL** the non-zero elements modulo $p$, i.e. the residues $$ (a \text{ mod } p),\, (a^2 \text{ mod } p),\,  (a^3 \text{ mod } p), \dots , (a^{p-1} \text{ mod } p),$$ are all distinct and consist of the integers $$1, 2, \dots, p-1,$$ (though probably not in that order).
+* So when $a$ is a primitive root modulo $p$ the function value $\text{dlog}_{a,p}(c)$ will be defined for all $c \not \equiv 0 \pmod{p}$.
 * Security arises from the facts that 
     - computing modular exponentials is fast (using modular reduction, Euler's theorem and repeated squaring)
     - there is no known fast algorithm for computing discrete logarithms. So for suitably large $p$, it cannot be done in any practical way.

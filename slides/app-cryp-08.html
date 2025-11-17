@@ -104,8 +104,8 @@ exponentials.
 <li>So if <span class="math inline">\(c=a^b\)</span> then</li>
 <li><span class="math inline">\(\log_a(c) = b\)</span>.</li>
 <li>We say <span class="math inline">\(b\)</span> is the
-<em>logarithm</em>, with base <span class="math inline">\(a\)</span>, of
-<span class="math inline">\(c\)</span>.</li>
+<strong>logarithm, with base <span class="math inline">\(a\)</span>, of
+<span class="math inline">\(c\)</span></strong>.</li>
 </ul></li>
 <li>You might see a function <span class="math inline">\(\log\)</span>
 mentioned without a base. Its meaning is usually determined by
@@ -146,6 +146,10 @@ p),\,  (a^3 \text{ mod } p), \dots , (a^{p-1} \text{ mod } p),\]</span>
 are all distinct and consist of the integers <span
 class="math display">\[1, 2, \dots, p-1,\]</span> (though probably not
 in that order).</li>
+<li>So when <span class="math inline">\(a\)</span> is a primitive root
+modulo <span class="math inline">\(p\)</span> the function value <span
+class="math inline">\(\text{dlog}_{a,p}(c)\)</span> will be defined for
+all <span class="math inline">\(c \not \equiv 0 \pmod{p}\)</span>.</li>
 <li>Security arises from the facts that
 <ul>
 <li>computing modular exponentials is fast (using modular reduction,
