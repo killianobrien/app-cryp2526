@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Killian O’Brien">
-  <meta name="author" content="6G6Z0024 Applied Cryptography 2024/25">
+  <meta name="author" content="6G6Z0024 Applied Cryptography 2025/26">
   <title>Public Key Cryptography</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,6 +15,9 @@
     .reveal .sourceCode {  /* see #7635 */
       overflow: visible;
     }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -40,8 +43,8 @@
 5%" data-background-repeat="no-repeat" data-background-size="18%">
   <h1 class="title">Public Key Cryptography</h1>
   <p class="author">Killian O’Brien</p>
-  <p class="author">6G6Z0024 Applied Cryptography 2024/25</p>
-  <p class="date">Lecture Week 08 – Wed 20 November 2024</p>
+  <p class="author">6G6Z0024 Applied Cryptography 2025/26</p>
+  <p class="date">Lecture Week 08 – Mon 17 November 2025</p>
 </section>
 
 <section id="introduction" class="slide level2">
@@ -114,7 +117,7 @@ class="math inline">\(\log_2\)</span>,</li>
 class="math inline">\(\log_e\)</span>, the <em>natural
 logarithm</em>,</li>
 <li>Engineers might usually mean <span
-class="math inline">\(\log{10}\)</span>.</li>
+class="math inline">\(\log_{10}\)</span>.</li>
 </ul></li>
 </ul>
 </section>
@@ -148,7 +151,7 @@ in that order).</li>
 <li>computing modular exponentials is fast (using modular reduction,
 Euler’s theorem and repeated squaring)</li>
 <li>there is no known fast algorithm for computing discrete logarithms.
-So for suitable large <span class="math inline">\(p\)</span>, it cannot
+So for suitably large <span class="math inline">\(p\)</span>, it cannot
 be done in any practical way.</li>
 </ul></li>
 </ul>
