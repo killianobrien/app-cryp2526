@@ -2,8 +2,8 @@
 title: "Cryptographic hash functions"
 author:
 - Killian O'Brien
-- 6G6Z0024 Applied Cryptography 2024/25
-date: Lecture Week 09 -- Wed 27 November 2024
+- 6G6Z0024 Applied Cryptography 2025/26
+date: Lecture Week 09 -- Mon 24 November 2025
 transition: fade
 theme: killian
 width: 1920
@@ -27,8 +27,8 @@ title-slide-attributes:
 
 * <img src="./images/hash-idea.png" alt="Stallings" style="padding:5px;height=100%;float:right"> $H$ takes a variable-length block of data $M$ and computes a fixed sized output $h=H(M)$.
 * $h$ called the *hash value*, or *hash code* or *message digest*. 
-* Typically the input message $M$ is split into standard sized blocks, with padding $P$ if necessary, often including data on the length $L$ of $M$.
-* Typically $h$ will come from a very large domain of possible values, and different inputs $M$ will produce outputs $h$ that are evenly distributed and apparently random selections from this domain. 
+* Typically, the input message $M$ is split into standard sized blocks, with padding $P$ if necessary, often including data on the length $L$ of $M$.
+* Typically, $h$ will come from a very large domain of possible values, and different inputs $M$ will produce outputs $h$ that are evenly distributed and apparently random selections from this domain. 
 * The inner workings of $H$ will be somewhat complex, but still have fast implementations in software and/or hardware. 
 * For cryptographic hash functions, the inner workings of $H$ will ensure security, in that it should be computationally infeasible to compute
     - a message $M$ that will hash to a given hash value $h$ (pre-image resistance)

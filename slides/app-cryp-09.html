@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Killian O’Brien">
-  <meta name="author" content="6G6Z0024 Applied Cryptography 2024/25">
+  <meta name="author" content="6G6Z0024 Applied Cryptography 2025/26">
   <title>Cryptographic hash functions</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,6 +15,9 @@
     .reveal .sourceCode {  /* see #7635 */
       overflow: visible;
     }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -40,8 +43,8 @@
 5%" data-background-repeat="no-repeat" data-background-size="18%">
   <h1 class="title">Cryptographic hash functions</h1>
   <p class="author">Killian O’Brien</p>
-  <p class="author">6G6Z0024 Applied Cryptography 2024/25</p>
-  <p class="date">Lecture Week 09 – Wed 27 November 2024</p>
+  <p class="author">6G6Z0024 Applied Cryptography 2025/26</p>
+  <p class="date">Lecture Week 09 – Mon 24 November 2025</p>
 </section>
 
 <section id="introduction" class="slide level2">
@@ -60,12 +63,12 @@ data <span class="math inline">\(M\)</span> and computes a fixed sized
 output <span class="math inline">\(h=H(M)\)</span>.</li>
 <li><span class="math inline">\(h\)</span> called the <em>hash
 value</em>, or <em>hash code</em> or <em>message digest</em>.</li>
-<li>Typically the input message <span class="math inline">\(M\)</span>
+<li>Typically, the input message <span class="math inline">\(M\)</span>
 is split into standard sized blocks, with padding <span
 class="math inline">\(P\)</span> if necessary, often including data on
 the length <span class="math inline">\(L\)</span> of <span
 class="math inline">\(M\)</span>.</li>
-<li>Typically <span class="math inline">\(h\)</span> will come from a
+<li>Typically, <span class="math inline">\(h\)</span> will come from a
 very large domain of possible values, and different inputs <span
 class="math inline">\(M\)</span> will produce outputs <span
 class="math inline">\(h\)</span> that are evenly distributed and
