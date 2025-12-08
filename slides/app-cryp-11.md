@@ -83,7 +83,7 @@ Test(n)
 2. Select a random integer a, satisfying 1 < a < n - 1;
 3. if a^q mod n = 1 then return('inconclusive');
 4. for j = 0 to k - 1 do
-    5. if a^(2^j) * q mod n = n - 1 then return('inconclusive');
+    5. if a^((2^j) * q) mod n = n - 1 then return('inconclusive');
 6. return('composite')
 
 ~~~~
