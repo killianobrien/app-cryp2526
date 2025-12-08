@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Killian O’Brien">
-  <meta name="author" content="6G6Z0024 Applied Cryptography 2024/25">
+  <meta name="author" content="6G6Z0024 Applied Cryptography 2025/26">
   <title>Miller-Rabin primality test</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,6 +15,9 @@
     .reveal .sourceCode {  /* see #7635 */
       overflow: visible;
     }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -40,8 +43,8 @@
 5%" data-background-repeat="no-repeat" data-background-size="18%">
   <h1 class="title">Miller-Rabin primality test</h1>
   <p class="author">Killian O’Brien</p>
-  <p class="author">6G6Z0024 Applied Cryptography 2024/25</p>
-  <p class="date">Lecture Week 11 – Wed 11 December 2024</p>
+  <p class="author">6G6Z0024 Applied Cryptography 2025/26</p>
+  <p class="date">Lecture Week 11 – Mon 08 December 2025</p>
 </section>
 
 <section id="miller-rabin-primality-test." class="slide level2">
@@ -63,16 +66,16 @@ probability, to be prime.</li>
 <ul>
 <li>Recall Fermat’s Little Theorem: If <span
 class="math inline">\(p\)</span> is a prime, and <span
-class="math inline">\(a\)</span> and integer coprime to <span
+class="math inline">\(a\)</span> an integer coprime to <span
 class="math inline">\(p\)</span>, then <span class="math display">\[
 a^{p-1} \equiv 1 \pmod{p}.\]</span></li>
 <li>This can be turned into a test for primality by efficiently
 searching for the breakdown of this condition when the modulus is not in
 fact prime.</li>
 <li>So if we find an <span class="math inline">\(a\)</span> that is
-coprime to <span class="math inline">\(n\)</span> but <span
-class="math display">\[ a^{n-1} \not \equiv 1 \pmod{n}\]</span> then we
-can conclude that <span class="math inline">\(n\)</span> is not
+coprime to <span class="math inline">\(n\)</span> but<br />
+<span class="math display">\[ a^{n-1} \not \equiv 1 \pmod{n}\]</span>
+then we can conclude that <span class="math inline">\(n\)</span> is not
 prime.</li>
 </ul>
 </section>
@@ -94,7 +97,7 @@ class="math inline">\(1 \lt a \lt n-1\)</span>, then Fermat’s Little
 Theorem implies that <span class="math display">\[a^{n-1} \equiv a^{2^k
 q} \equiv 1 \pmod{n}.\]</span></li>
 <li>Consider the sequence of powers leading up to <span
-class="math inline">\(a^{2^kq}\)</span>, namely, <span
+class="math inline">\(a^{2^k q}\)</span>, namely, <span
 class="math display">\[a^q, a^{2q}, a^{2^2 q} , a^{2^3 q}, \dots ,
 a^{2^k q},\]</span> and note that each element on this list is the
 square of the previous element.</li>
@@ -104,7 +107,7 @@ class="math inline">\(\equiv 1 \pmod{n}\)</span> if <span
 class="math inline">\(n\)</span> is prime. So this means that somewhere
 earlier in the list the element must be <span
 class="math inline">\(\equiv +1\)</span> or <span
-class="math inline">\(-1 \pmod{n}\)</span>, since <span
+class="math inline">\(-1 \pmod{n }\)</span>, since <span
 class="math inline">\(\pm 1\)</span> are the only two elements that
 square to <span class="math inline">\(1\)</span>.</li>
 <li>So we will know for certain that <span
@@ -113,7 +116,7 @@ encounter an element <span class="math inline">\(a\)</span>, satisfying
 <span class="math inline">\(1 \leq a \leq n-1\)</span> where the list of
 residues modulo <span class="math inline">\(n\)</span> <span
 class="math display">\[a^q, a^{2q}, a^{2^2 q} , a^{2^3 q}, \dots ,
-a^{2^k q},\]</span> does not contain any member congruent to <span
+a^{2^{k-1} q},\]</span> does not contain any member congruent to <span
 class="math inline">\(1\)</span> or <span
 class="math inline">\(-1\)</span> modulo <span
 class="math inline">\(n\)</span>.</li>
@@ -128,11 +131,11 @@ determine <span class="math inline">\(k\)</span> and <span
 class="math inline">\(q\)</span> such that <span
 class="math display">\[n = 2^k q +1,\]</span> where <span
 class="math inline">\(q\)</span> is odd.</li>
-<li>Select a random <span class="math inline">\(a\)</span>, <span
-class="math inline">\(1 \lt a \lt n-1\)</span></li>
+<li>Select a random <span class="math inline">\(a\)</span>, satisfying
+<span class="math inline">\(1 \lt a \lt n-1\)</span></li>
 <li>Proceed through the list <span class="math display">\[a^q, a^{2q},
-a^{2^2 q} , a^{2^3 q}, \dots , a^{2^{(k-1)} q},\]</span> by starting
-with <span class="math inline">\(a^q\)</span> and repeatedly
+a^{2^2 q} , a^{2^3 q}, \dots , a^{2^{(k-1)} q} \quad \pmod{n},\]</span>
+by starting with <span class="math inline">\(a^q\)</span> and repeatedly
 squaring.</li>
 <li>If the list <strong>does not</strong> contain any element <span
 class="math inline">\(\equiv \pm 1 \pmod{n}\)</span> then stop and
@@ -156,6 +159,31 @@ class="math inline">\(n\)</span> passing 10 applications of this test
 can happen only with a probability less than <span
 class="math inline">\(10^{-6} = 1/(1,000,000)\)</span>.</li>
 </ul>
+</section>
+<section id="correction-to-stallings" class="slide level2">
+<h2>Correction to Stallings</h2>
+<ul>
+<li>The Miller-Rabin test is discussed in detail in
+<a href="https://mmu.on.worldcat.org/oclc/1334132058" target="_blank">Section
+2.6 in Stallings</a>.</li>
+<li>On page 67 there is a pseudo-code definition for a function
+<code>Test(n)</code> implementing the test.</li>
+<li>Unfortunately the typesetting is not correct there. I think this is
+a result of the conversion to a pdf ebook perhaps?</li>
+<li>Here is a corrected version of that pseudo-code. Not that the if a
+<code>return</code> command executes, the function <code>Test</code>
+will cease executing and pass control back to whatever code or user
+invoked the function.</li>
+</ul>
+<pre><code>Test(n)
+
+1. Find integers k, q with k &gt; 0, q odd, so that n - 1 = 2^k * q;
+2. Select a random integer a, satisfying 1 &lt; a &lt; n - 1;
+3. if a^q mod n = 1 then return(&#39;inconclusive&#39;);
+4. for j = 0 to k - 1 do
+    5. if a^(2^j) * q mod n = n - 1 then return(&#39;inconclusive&#39;);
+6. return(&#39;composite&#39;)
+</code></pre>
 </section>
     </div>
   </div>
@@ -296,7 +324,7 @@ class="math inline">\(10^{-6} = 1/(1,000,000)\)</span>.</li>
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'zoom',
+        transition: 'fade',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
