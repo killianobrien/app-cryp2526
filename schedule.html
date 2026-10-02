@@ -422,5 +422,15 @@ a:hover {
 	</tbody>
 </table>
 
+// Send height to the parent window
+window.parent.postMessage(document.body.scrollHeight, '*');
+
+// Optional: Use a ResizeObserver to update height dynamically if content changes
+const observer = new ResizeObserver(entries => {
+  window.parent.postMessage(document.body.scrollHeight, '*');
+});
+observer.observe(document.body);
+
+
 </body>
 </html>
