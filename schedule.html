@@ -421,7 +421,7 @@ a:hover {
 		</tr>
 	</tbody>
 </table>
-
+<script>
 // Send height to the parent window
 window.parent.postMessage(document.body.scrollHeight, '*');
 
@@ -430,7 +430,7 @@ const observer = new ResizeObserver(entries => {
   window.parent.postMessage(document.body.scrollHeight, '*');
 });
 observer.observe(document.body);
-
+</script>
 
 </body>
 </html>
